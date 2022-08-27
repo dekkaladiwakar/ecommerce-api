@@ -3,12 +3,13 @@ import { BuyerModel } from "../models/Buyer.js";
 import CryptoJS from "crypto-js";
 import jwt from "jsonwebtoken";
 import { SellerModel } from "../models/Seller.js";
+import { generateAccessToken } from "../utils/generateToken.js";
 
 const router = Router();
 
 // @desc: Registration for Buyers and Sellers
 // @route: localhost:5000/api/auth/register
-// @access: public
+// @access: Public
 router.post("/register", async (req, res) => {
   let newUser;
   if (req.body.type == "B") {
@@ -46,7 +47,7 @@ router.post("/register", async (req, res) => {
 
 // @desc: Login for Buyers & Sellers
 // @route: localhost:5000/api/auth/login
-// @access: public
+// @access: Public
 router.post("/login", async (req, res) => {
   try {
     let user;
@@ -82,17 +83,5 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-const generateAccessToken = (userId) => {
-  const accessToken = jwt.sign(
-    {
-      id: userId,
-    },
-    process.env.JWT_SECRET,
-    { expiresIn: "1d" }
-  );
-
-  return accessToken;
-};
 
 export { router as authRoute };
