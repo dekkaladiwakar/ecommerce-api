@@ -59,8 +59,9 @@ router.post("/login", async (req, res) => {
     if (originPassword != req.body.password) {
       res.status(401).json({ msg: "Wrong Credentials" });
     } else {
-      // @params: (id, isAdmin, isInternal)
-      const accessToken = generateAccessToken(user._id, user.isAdmin, true);
+      const accessToken = generateAccessToken(user._id, {
+        isAdmin: user.isAdmin,
+      });
 
       const { password, ...others } = user._doc;
 

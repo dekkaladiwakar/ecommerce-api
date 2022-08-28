@@ -5,6 +5,7 @@ import { authRoute } from "./routes/auth.js";
 import { userRoute } from "./routes/user.js";
 import { internalRoute } from "./routes/internalAuth.js";
 import { productRoute } from "./routes/product.js";
+import { catalogRoute } from "./routes/catalog.js";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/internal", internalRoute);
 app.use("/api/products", productRoute);
+app.use("/api/catalog", catalogRoute);
 
 mongoose
   .connect(process.env.MONGO_URL)

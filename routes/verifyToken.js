@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import { SellerModel } from "../models/Seller.js";
 
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers.token;
@@ -20,11 +21,7 @@ const verifyToken = (req, res, next) => {
 const verifyTokenAndAuthorization = (req, res, next) => {
   verifyToken(req, res, () => {
     if ("user" in req) {
-      if (
-        req.user.id === req.params.id &&
-        req.user.isAdmin == false &&
-        req.user.isInternal == false
-      ) {
+      if (req.user.id === req.params.id && req.user.isAdmin == false) {
         next();
       } else {
         res.status(403).json({
@@ -49,4 +46,45 @@ const verifyTokenAndAdmin = (req, res, next) => {
   });
 };
 
-export { verifyTokenAndAuthorization, verifyTokenAndAdmin };
+const verifySellerToken = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if ("user" in req) {
+      const newSeller = SellerModel.findById(req.params.id);
+      if (newSeller) {
+        if (req.user.id == req.params.id) {
+          next();
+        } else {
+          res.status(403).json({
+            msg: "You are not allowed to access the endpoint.",
+          });
+        }
+      } else {
+        res.status(403).json({
+          msg: "You are not allowed to access the endpoint.",
+        });
+      }
+    }
+  });
+};
+
+const verifyBuyerToken = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if ("user" in req) {
+      if (!req.user.isSeller) {
+        next();
+      } else {
+        res.status(403).json({
+          msg: "You are not allowed to access the endpoint.",
+        });
+      }
+    }
+  });
+};
+
+export {
+  verifyToken,
+  verifyTokenAndAuthorization,
+  verifyTokenAndAdmin,
+  verifySellerToken,
+  verifyBuyerToken,
+};

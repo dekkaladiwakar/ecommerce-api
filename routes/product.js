@@ -1,11 +1,6 @@
-import { query, Router } from "express";
-import {
-  verifyTokenAndAdmin,
-  verifyTokenAndAuthorization,
-} from "./verifyToken.js";
-import CryptoJS from "crypto-js";
+import { Router } from "express";
+import { verifySellerToken, verifyTokenAndAdmin } from "./verifyToken.js";
 import { ProductModel } from "../models/Product.js";
-import mongoose from "mongoose";
 
 const router = Router();
 
@@ -31,9 +26,9 @@ router.post("/add", verifyTokenAndAdmin, async (req, res) => {
 });
 
 // @desc: Fetch products for sellers to add to catalog
-// @route: GET localhost:5000/api/proudcts/
-// @access: Public
-router.get("/", async (req, res) => {
+// @route: GET localhost:5000/api/proudcts/{sellerId}
+// @access: Private
+router.get("/:id", verifySellerToken, async (req, res) => {
   try {
     let limit;
     let result = [];
@@ -44,12 +39,14 @@ router.get("/", async (req, res) => {
 
     for (let item in products) {
       result.push({
-        Id: products[item].pid,
-        Name: products[item].name,
-        Price: products[item].price,
+        id: products[item]._id,
+        productId: products[item].pid,
+        name: products[item].name,
+        price: products[item].price,
       });
     }
     res.status(200).json({
+      limit: limit,
       products: result,
     });
   } catch (err) {

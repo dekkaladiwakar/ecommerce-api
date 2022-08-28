@@ -34,13 +34,16 @@ router.post("/register", async (req, res) => {
     const savedUser = await newUser.save();
 
     // Generate access token after user is created
-    const accessToken = generateAccessToken(savedUser._id);
+    const accessToken = generateAccessToken(savedUser._id, {
+      isSeller: savedUser.isSeller,
+    });
 
     res.status(201).json({
       ...savedUser._doc,
       accessToken,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -73,7 +76,9 @@ router.post("/login", async (req, res) => {
     if (originPassword != req.body.password) {
       res.status(401).json({ msg: "Wrong Credentials" });
     } else {
-      const accessToken = generateAccessToken(user._id);
+      const accessToken = generateAccessToken(user._id, {
+        isSeller: user.isSeller,
+      });
 
       const { password, ...others } = user._doc;
 
