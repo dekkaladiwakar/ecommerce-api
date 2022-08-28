@@ -5,7 +5,7 @@ import { verifyBuyerToken, verifySellerToken } from "./verifyToken.js";
 const router = Router();
 
 // @desc: seller creates a catalog by adding products
-// @route: localhost:5000/api/catalog/seller/{sellerId}/create
+// @route: POST localhost:5000/api/catalog/seller/{sellerId}/create
 // @access: Private
 router.post("/seller/:id/create", verifySellerToken, async (req, res) => {
   const newCatalog = CatalogModel({
@@ -50,12 +50,14 @@ router.get("/buyer/sellers-list", verifyBuyerToken, async (req, res) => {
   }
 });
 
-// @desc: fetches catalogs of a seller based on sellerId
+// @desc: fetches prodcuts in catalog of a seller based on sellerId
 // @route: GET localhost:5000/api/catalog/buyer/{sellerId}
 // @access: Private
 router.get("/buyer/:id", verifyBuyerToken, async (req, res) => {
   try {
-    const catalogs = await CatalogModel.findOne({ seller: req.params.id });
+    const catalogs = await CatalogModel.findOne({
+      seller: req.params.id,
+    }).populate("products");
 
     let catalogItems = [];
 

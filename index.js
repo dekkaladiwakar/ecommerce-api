@@ -6,18 +6,24 @@ import { userRoute } from "./routes/user.js";
 import { internalRoute } from "./routes/internalAuth.js";
 import { productRoute } from "./routes/product.js";
 import { catalogRoute } from "./routes/catalog.js";
+import { orderRoute } from "./routes/order.js";
 
+// Loading .env
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
+
+// Routes
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/internal", internalRoute);
 app.use("/api/products", productRoute);
 app.use("/api/catalog", catalogRoute);
+app.use("/api/orders", orderRoute);
 
+// DB Connection
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
@@ -25,6 +31,9 @@ mongoose
   })
   .catch((err) => console.log(err));
 
+// @desc: Check API Working status
+// @route: GET localhost:5000/health-check
+// @access: public
 app.get("/health-check", (req, res) => {
   res.send("APIs are working!");
 });
