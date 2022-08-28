@@ -24,20 +24,47 @@ router.post("/seller/:id/create", verifySellerToken, async (req, res) => {
   }
 });
 
-// @desc: fetches catalogs of all sellers
-// @route: GET localhost:5000/api/catalog/buyer/
+// @desc: fetches sellers with catalogs
+// @route: GET localhost:5000/api/catalog/buyer/sellers-list
 // @access: Private
-router.get("/buyer", verifyBuyerToken, async (req, res) => {
+router.get("/buyer/sellers-list", verifyBuyerToken, async (req, res) => {
   try {
     let limit;
+    let sellerList = [];
 
     req.query.limit ? (limit = req.query.limit) : (limit = 10);
 
     const catalogs = await CatalogModel.find().limit(limit);
 
+    for (let item in catalogs) {
+      sellerList.push(catalogs[item].seller);
+    }
+
     res.status(200).json({
       limit: limit,
-      catalogs,
+      sellerList,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// @desc: fetches catalogs of a seller based on sellerId
+// @route: GET localhost:5000/api/catalog/buyer/{sellerId}
+// @access: Private
+router.get("/buyer/:id", verifyBuyerToken, async (req, res) => {
+  try {
+    const catalogs = await CatalogModel.findOne({ seller: req.params.id });
+
+    let catalogItems = [];
+
+    if ("products" in catalogs) {
+      catalogItems = catalogs.products;
+    }
+
+    res.status(200).json({
+      catalogItems,
     });
   } catch (err) {
     console.log(err);
