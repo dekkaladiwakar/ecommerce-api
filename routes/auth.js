@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { BuyerModel } from "../models/Buyer.js";
 import CryptoJS from "crypto-js";
-import jwt from "jsonwebtoken";
 import { SellerModel } from "../models/Seller.js";
 import { generateAccessToken } from "../utils/generateToken.js";
 

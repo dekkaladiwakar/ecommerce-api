@@ -1,0 +1,407 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Ecommerce",
+		"_postman_id": "e62f5623-9cac-5ff1-3b5a-6e223f552886",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health",
+			"request": {
+				"url": "localhost:5000/health-check",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"url": "localhost:5000/api/auth/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"Btest2@test.com\",\n\t\"password\": \"123456\",\n\t\"type\": \"B\"\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "ed943cd2-d437-419c-aedb-0327fa3a53ac",
+					"name": "Register Seller Example",
+					"originalRequest": {
+						"url": "localhost:5000/api/auth/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"seller1@test.com\",\n\t\"password\": \"123456\",\n\t\"type\": \"S\"\n}"
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "451",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sun, 28 Aug 2022 00:27:58 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "etag",
+							"key": "etag",
+							"value": "W/\"1c3-lbEHQKRbGRTsPHlM4AXEXo0uaBs\"",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=5",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-powered-by",
+							"key": "x-powered-by",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 156,
+					"body": "{\"email\":\"seller1@test.com\",\"password\":\"U2FsdGVkX1+79mlSPdqUufTnllHtYX4qPHMIUaV9q8s=\",\"isSeller\":true,\"_id\":\"630ab68e54bcbb096c09de8c\",\"createdAt\":\"2022-08-28T00:27:58.620Z\",\"updatedAt\":\"2022-08-28T00:27:58.620Z\",\"__v\":0,\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGFiNjhlNTRiY2JiMDk2YzA5ZGU4YyIsImlzQWRtaW4iOmZhbHNlLCJpc1NlbGxlciI6dHJ1ZSwiaWF0IjoxNjYxNjQ2NDc4LCJleHAiOjE2NjE3MzI4Nzh9.XWtc_pKk9g382nxuz6ganuD63uaLL5bHMjosgVcwGSw\"}"
+				},
+				{
+					"id": "d8146250-c9f1-4854-b8d9-bfda0edc539d",
+					"name": "Register Buyer Example",
+					"originalRequest": {
+						"url": "localhost:5000/api/auth/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"buyer1@test.com\",\n\t\"password\": \"123456\",\n\t\"type\": \"B\"\n}"
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "453",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "content-type",
+							"key": "content-type",
+							"value": "application/json; charset=utf-8",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sun, 28 Aug 2022 00:26:58 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "etag",
+							"key": "etag",
+							"value": "W/\"1c5-Xiop3SvJch/UHa9BnSQWUUq8C08\"",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=5",
+							"description": "Custom header"
+						},
+						{
+							"name": "x-powered-by",
+							"key": "x-powered-by",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 72,
+					"body": "{\"email\":\"buyer1@test.com\",\"password\":\"U2FsdGVkX19l+Wng+p6jZVeju8d0RHe7wWnJqXrs4VE=\",\"isSeller\":false,\"_id\":\"630ab65254bcbb096c09de89\",\"createdAt\":\"2022-08-28T00:26:58.459Z\",\"updatedAt\":\"2022-08-28T00:26:58.459Z\",\"__v\":0,\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGFiNjUyNTRiY2JiMDk2YzA5ZGU4OSIsImlzQWRtaW4iOmZhbHNlLCJpc1NlbGxlciI6ZmFsc2UsImlhdCI6MTY2MTY0NjQxOCwiZXhwIjoxNjYxNzMyODE4fQ.uLN_Jbzc242cN9xziwj2nzNNFHw8wkx6cb3wXD0wWeE\"}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"url": "localhost:5000/api/auth/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"Stest1@test.com\",\n\t\"password\": \"123456\",\n\t\"type\": \"S\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register (Internal)",
+			"request": {
+				"url": "localhost:5000/api/internal/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin_3\",\n\t\"password\": \"123456\",\n\t\"isAdmin\": true\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login (Internal)",
+			"request": {
+				"url": "localhost:5000/api/internal/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin_3\",\n\t\"password\": \"123456\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product (Internal)",
+			"request": {
+				"url": "localhost:5000/api/products/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGE1OTc5NTA3ZTkyNzczNjIwY2E1OSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2MTYyNDA5NiwiZXhwIjoxNjYxNzEwNDk2fQ.0JtmOzvphBG9auAlg80sKGQUgmdOKIZs8Itv4Flkmzg",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"pid\": 1147,\n\t\"name\": \"Macbook Ultra\",\n\t\"price\": 236000\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Products",
+			"request": {
+				"url": {
+					"raw": "localhost:5000/api/products/630a3ddfc36e9d7af2ba9c90?limit=7",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"products",
+						"630a3ddfc36e9d7af2ba9c90"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "7",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGEzZGRmYzM2ZTlkN2FmMmJhOWM5MCIsImlhdCI6MTY2MTYxNTYwMiwiZXhwIjoxNjYxNzAyMDAyfQ.RffRkG564kXWvS9Dr4pOhh-ymG_q987Pv4A0w-SozLE",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Catalog",
+			"request": {
+				"url": "localhost:5000/api/catalog/seller/630a3ddfc36e9d7af2ba9c90/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGEzZGRmYzM2ZTlkN2FmMmJhOWM5MCIsImlzQWRtaW4iOmZhbHNlLCJpc1NlbGxlciI6dHJ1ZSwiaWF0IjoxNjYxNzE5NTA2LCJleHAiOjE2NjE4MDU5MDZ9.QoTmCg0GgsEWokbQEg8Bst0aW1tQ4BzVXGiKcRHO3AQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"products\": [\"630a608d0b368faa3ca6851c\", \"630a866fdb6621637df4a448\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Seller's List",
+			"request": {
+				"url": "localhost:5000/api/catalog/buyer/sellers-list",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGFiNjUyNTRiY2JiMDk2YzA5ZGU4OSIsImlzQWRtaW4iOmZhbHNlLCJpc1NlbGxlciI6ZmFsc2UsImlhdCI6MTY2MTY0NjQxOCwiZXhwIjoxNjYxNzMyODE4fQ.uLN_Jbzc242cN9xziwj2nzNNFHw8wkx6cb3wXD0wWeE",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Seller's Catalog",
+			"request": {
+				"url": "localhost:5000/api/catalog/buyer/630a3ddfc36e9d7af2ba9c90",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGEzZGRmYzM2ZTlkN2FmMmJhOWM5MCIsImlzQWRtaW4iOmZhbHNlLCJpc1NlbGxlciI6dHJ1ZSwiaWF0IjoxNjYxNzE5NTA2LCJleHAiOjE2NjE4MDU5MDZ9.QoTmCg0GgsEWokbQEg8Bst0aW1tQ4BzVXGiKcRHO3AQ",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"url": "localhost:5000/api/orders/buyer/create/630a3ddfc36e9d7af2ba9c90",
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGFiNjUyNTRiY2JiMDk2YzA5ZGU4OSIsImlzQWRtaW4iOmZhbHNlLCJpc1NlbGxlciI6ZmFsc2UsImlhdCI6MTY2MTY0NjQxOCwiZXhwIjoxNjYxNzMyODE4fQ.uLN_Jbzc242cN9xziwj2nzNNFHw8wkx6cb3wXD0wWeE",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"products\": [\"630a608d0b368faa3ca6851c\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Seller Orders",
+			"request": {
+				"url": "localhost:5000/api/orders/seller/630a3ddfc36e9d7af2ba9c90",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGEzZGRmYzM2ZTlkN2FmMmJhOWM5MCIsImlzQWRtaW4iOmZhbHNlLCJpc1NlbGxlciI6dHJ1ZSwiaWF0IjoxNjYxNzE5NTA2LCJleHAiOjE2NjE4MDU5MDZ9.QoTmCg0GgsEWokbQEg8Bst0aW1tQ4BzVXGiKcRHO3AQ",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
