@@ -48,7 +48,6 @@ const verifyTokenAndAdmin = (req, res, next) => {
 
 const verifySellerToken = (req, res, next) => {
   verifyToken(req, res, () => {
-    console.log(req.user);
     if ("user" in req) {
       const newSeller = SellerModel.findById(req.params.id);
       if (newSeller) {

@@ -6,7 +6,7 @@ const router = Router();
 
 // @desc: seller creates a catalog by adding products
 // @route: POST localhost:5000/api/catalog/seller/{sellerId}/create
-// @access: Private
+// @access: Private (Seller)
 router.post("/seller/:id/create", verifySellerToken, async (req, res) => {
   const newCatalog = CatalogModel({
     seller: req.params.id,
@@ -26,7 +26,7 @@ router.post("/seller/:id/create", verifySellerToken, async (req, res) => {
 
 // @desc: fetches sellers with catalogs
 // @route: GET localhost:5000/api/catalog/buyer/sellers-list
-// @access: Private
+// @access: Private (Byter)
 router.get("/buyer/sellers-list", verifyBuyerToken, async (req, res) => {
   try {
     let limit;
@@ -52,7 +52,7 @@ router.get("/buyer/sellers-list", verifyBuyerToken, async (req, res) => {
 
 // @desc: fetches prodcuts in catalog of a seller based on sellerId
 // @route: GET localhost:5000/api/catalog/buyer/{sellerId}
-// @access: Private
+// @access: Private (Buyer)
 router.get("/buyer/:id", verifyBuyerToken, async (req, res) => {
   try {
     const catalogs = await CatalogModel.findOne({

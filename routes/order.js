@@ -6,7 +6,7 @@ const router = express.Router();
 
 // @desc: Create an order
 // @route: POST localhost:5000/api/orders/buyer/create/{sellerId}
-// @access: private
+// @access: private (Buyer)
 router.post("/buyer/create/:id", verifyBuyerToken, async (req, res) => {
   const newOrder = new OrderModel({
     buyer: req.user.id,
@@ -27,7 +27,7 @@ router.post("/buyer/create/:id", verifyBuyerToken, async (req, res) => {
 
 // @desc: Fetch seller's orders
 // @route: GET localhost:5000/api/orders/seller/{sellerId}
-// @access: private
+// @access: private (Seller)
 router.get("/seller/:id", verifySellerToken, async (req, res) => {
   try {
     const orders = await OrderModel.find({

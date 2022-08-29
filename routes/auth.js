@@ -8,7 +8,7 @@ import { generateAccessToken } from "../utils/generateToken.js";
 const router = Router();
 
 // @desc: Registration for Buyers and Sellers
-// @route: localhost:5000/api/auth/register
+// @route: POST localhost:5000/api/auth/register
 // @access: Public
 router.post("/register", async (req, res) => {
   let newUser;
@@ -49,7 +49,7 @@ router.post("/register", async (req, res) => {
 });
 
 // @desc: Login for Buyers & Sellers
-// @route: localhost:5000/api/auth/login
+// @route: POST localhost:5000/api/auth/login
 // @access: Public
 router.post("/login", async (req, res) => {
   try {

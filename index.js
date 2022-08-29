@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use("/api/user", userRoute);
+// app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/internal", internalRoute);
 app.use("/api/products", productRoute);

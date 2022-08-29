@@ -5,7 +5,7 @@ import { ProductModel } from "../models/Product.js";
 const router = Router();
 
 // @desc: Add products that are availabe for sellers
-// @route: localhost:5000/api/proudcts/add
+// @route: POST localhost:5000/api/proudcts/add
 // @access: Internal
 router.post("/add", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new ProductModel({
@@ -27,7 +27,7 @@ router.post("/add", verifyTokenAndAdmin, async (req, res) => {
 
 // @desc: Fetch products for sellers to add to catalog
 // @route: GET localhost:5000/api/proudcts/{sellerId}
-// @access: Private
+// @access: Private (Seller)
 router.get("/:id", verifySellerToken, async (req, res) => {
   try {
     let limit;

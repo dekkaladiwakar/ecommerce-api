@@ -6,7 +6,7 @@ import { generateAccessToken } from "../utils/generateToken.js";
 const router = Router();
 
 // @desc: Registration for Internal access
-// @route: localhost:5000/api/internal/register
+// @route: POST localhost:5000/api/internal/register
 // @access: Internal
 router.post("/register", async (req, res) => {
   let isAdmin;
@@ -38,7 +38,7 @@ router.post("/register", async (req, res) => {
 });
 
 // @desc: Login for Internal access
-// @route: localhost:5000/api/internal/login
+// @route: POST localhost:5000/api/internal/login
 // @access: Internal
 router.post("/login", async (req, res) => {
   try {
